@@ -137,11 +137,13 @@ Self-contained HTML reports, with every model prompt and reply captured at
   tracks - watch how often each mode fires, not just red/green. Start here, then
   drop into the detail reports below.
 - **[Findings report](https://sbezjak.github.io/llm-agent/reports/report-findings.html)**
-  (`reports/report-findings.html`) - the same every run: F1-F9 narratives with
-  their mechanisms and rates, and for the eight agent findings the real captured
-  replies replayed through the actual detectors, no network needed. Regenerate:
+  (`reports/report-findings.html`) - the same every run: the F1-F9 narratives,
+  each with its mechanism, observed rates, and the captured reply behind it, no
+  network needed. The detectors that catch these findings are unit-tested
+  separately in `tests/checkers/test_deterministic_checkers.py` (they run in the
+  full suite, not this curated report). Regenerate:
   ```sh
-  uv run pytest tests/test_findings_showcase.py tests/checkers/test_deterministic_checkers.py \
+  uv run pytest tests/test_findings_showcase.py \
     -m mocked --html=reports/report-findings.html
   ```
 - **[Full run](https://sbezjak.github.io/llm-agent/reports/report-full-live-2026-07-15.html)**

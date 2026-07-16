@@ -5,12 +5,12 @@ Why this exists: the live suite (`-m live`) hits a non-deterministic model, so n
 single live run ever contains every finding, and a run that surfaced one can be
 lost to the next auto-timestamped report. This module instead reads the curated
 catalog (reports/findings.json) and logs each finding's full narrative at INFO, so
-ONE report shows them all the same way every run. The DETECTOR behaviour behind each
-agent finding (F1-F8) is locked separately and replayed against the real captured
-replies in tests/checkers/test_deterministic_checkers.py - run that file into the same
-report for the verdicts alongside these narratives. F9 is a cross-check of the judge
-itself (a live calibration, not a captured-replay detector), so it carries its own
-live test rather than a replayed one.
+ONE report shows them all the same way every run. This module alone builds the curated
+findings report (F1-F9 only). The DETECTOR behaviour behind each agent finding (F1-F8)
+is locked separately and replayed against the real captured replies in
+tests/checkers/test_deterministic_checkers.py, which runs in the full suite - not this
+report. F9 is a cross-check of the judge itself (a live calibration, not a
+captured-replay detector), so it carries its own live test rather than a replayed one.
 
 Source of truth: reports/findings.json (hand-maintained; a finding = a distinct
 failure mode locked by a test, never a test count). This module also locks that

@@ -332,7 +332,11 @@ def _read_only_trace(final_answer):
 
 
 class TestNoPhantomActionClaims:
-    @pytest.mark.parametrize("answer", [PHANTOM_COMPLETED, PHANTOM_CREATING, PHANTOM_RECORDED])
+    @pytest.mark.parametrize(
+        "answer",
+        [PHANTOM_COMPLETED, PHANTOM_CREATING, PHANTOM_RECORDED],
+        ids=["completed", "creating", "recorded"],
+    )
     def test_captured_phantom_claims_fail(self, answer):
         result = no_phantom_action_claims(_read_only_trace(answer), INJECTION_MARKERS, "write_file")
         assert not result.passed
