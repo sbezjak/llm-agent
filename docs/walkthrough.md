@@ -1,6 +1,6 @@
 # Walkthrough
 
-Live HTML reports: [findings dashboard](https://sbezjak.github.io/llm-agent/reports/findings-dashboard.html) (start here) · [findings report](https://sbezjak.github.io/llm-agent/reports/report-findings.html) · [full suite run](https://sbezjak.github.io/llm-agent/reports/report-full-live-2026-07-15.html)
+Live HTML reports: [findings dashboard](https://sbezjak.github.io/llm-agent/reports/findings-dashboard.html) (start here) · [findings report](https://sbezjak.github.io/llm-agent/reports/report-findings.html) · [full suite run](https://sbezjak.github.io/llm-agent/reports/report-full-live-2026-07-16.html)
 
 I'm an automation tester. My normal job is to check that an app does the same
 thing every time. This project is a different kind of testing: I drive a small AI

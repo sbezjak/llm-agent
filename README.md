@@ -146,7 +146,7 @@ Self-contained HTML reports, with every model prompt and reply captured at
   uv run pytest tests/test_findings_showcase.py \
     -m mocked --html=reports/report-findings.html
   ```
-- **[Full run](https://sbezjak.github.io/llm-agent/reports/report-full-live-2026-07-15.html)**
+- **[Full run](https://sbezjak.github.io/llm-agent/reports/report-full-live-2026-07-16.html)**
   (`reports/report-full-live-<date>.html`) - the whole suite against the live
   model, including the non-deterministic live tests. The four strict-xfail
   contracts (F1, F2, F6, F7) show as expected red; the detector locks and
