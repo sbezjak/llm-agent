@@ -1,24 +1,26 @@
 <title>Agent Eval Monitor — llm-agent findings</title>
 <style>
   :root {
-    --ground:#eef1f3; --surface:#ffffff; --surface-2:#f6f8f9;
-    --ink:#182226; --ink-2:#3b4a50; --muted:#6a787e; --line:#d9e0e3;
-    --accent:#0e8f83; --accent-ink:#0a6d64;
-    --sev-high:#b4531a; --sev-high-bg:#f6e6da;
-    --sev-med:#4f6f7b; --sev-med-bg:#e7edef;
-    --good:#2f8f6f; --good-bg:#e2efe9;
+    --ground:#0e1518; --surface:#131d21; --surface-2:#17242a;
+    --ink:#e7edee; --ink-2:#b4c0c5; --muted:#7d8b91; --line:#24343a;
+    --accent:#2bb6a7; --accent-ink:#6fd8cc;
+    --sev-high:#e08a4e; --sev-high-bg:#35251a;
+    --sev-med:#8fa8b2; --sev-med-bg:#1d2c32;
+    --good:#4bbf97; --good-bg:#16261f;
     --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
     --maxw: 1080px;
+    color-scheme: dark;
   }
-  @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: light) {
     :root {
-      --ground:#0e1518; --surface:#131d21; --surface-2:#17242a;
-      --ink:#e7edee; --ink-2:#b4c0c5; --muted:#7d8b91; --line:#24343a;
-      --accent:#2bb6a7; --accent-ink:#6fd8cc;
-      --sev-high:#e08a4e; --sev-high-bg:#35251a;
-      --sev-med:#8fa8b2; --sev-med-bg:#1d2c32;
-      --good:#4bbf97; --good-bg:#16261f;
+      --ground:#eef1f3; --surface:#ffffff; --surface-2:#f6f8f9;
+      --ink:#182226; --ink-2:#3b4a50; --muted:#6a787e; --line:#d9e0e3;
+      --accent:#0e8f83; --accent-ink:#0a6d64;
+      --sev-high:#b4531a; --sev-high-bg:#f6e6da;
+      --sev-med:#4f6f7b; --sev-med-bg:#e7edef;
+      --good:#2f8f6f; --good-bg:#e2efe9;
+      color-scheme: light;
     }
   }
   :root[data-theme="dark"] {
@@ -28,6 +30,7 @@
     --sev-high:#e08a4e; --sev-high-bg:#35251a;
     --sev-med:#8fa8b2; --sev-med-bg:#1d2c32;
     --good:#4bbf97; --good-bg:#16261f;
+    color-scheme: dark;
   }
   :root[data-theme="light"] {
     --ground:#eef1f3; --surface:#ffffff; --surface-2:#f6f8f9;
@@ -36,6 +39,7 @@
     --sev-high:#b4531a; --sev-high-bg:#f6e6da;
     --sev-med:#4f6f7b; --sev-med-bg:#e7edef;
     --good:#2f8f6f; --good-bg:#e2efe9;
+    color-scheme: light;
   }
 
   * { box-sizing: border-box; }
