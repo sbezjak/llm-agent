@@ -9,7 +9,9 @@ in an agent the bug is usually in the *chain*, not one reply. A learning
 project, written up for anyone getting into AI testing.
 
 Start with the [walkthrough](docs/walkthrough.md) - the guided tour with every
-finding and its captured trace. This README is the reference.
+finding and its captured trace - or the [findings dashboard](https://sbezjak.github.io/llm-agent/reports/findings-dashboard.html)
+for all nine failure modes at a glance, each with its live failure-rate and the
+agent's actual trace. This README is the reference.
 
 The one lesson across every finding below: **the final answer tells you nothing,
 only the trace does.** A fluent answer can hide a wrong result, a correct one a
