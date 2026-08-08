@@ -4,11 +4,8 @@
 
 A pytest suite that tests a mini **ReAct** agent - a system that does not just
 answer once but *plans, calls tools, and acts over several steps*. The tests
-assert over the full **trace of tool calls**, not just the final answer, because
-in an agent the bug is usually in the *chain*, not one reply.
-
-The one lesson across every finding: **the final answer tells you nothing, only
-the trace does.**
+assert over the full **trace of tool calls**, because the one lesson across every
+finding is that **the final answer tells you nothing, only the trace does.**
 
 - **[Walkthrough](docs/walkthrough.md)** - the guided tour: every finding, how it
   works, what production would add. Start here.
@@ -69,21 +66,16 @@ you assert over a whole trajectory, not one reply.
 
 Kept deliberately small, so the hard software is the *harness*, not the SUT:
 
-- `llm_agent/agent/` - the hand-rolled ReAct loop (`loop.py`), the `Trace` /
-  `Step` contract (`trace.py`), a fail-closed `PolicyGuard` over dispatch
-  (`guard.py`). Tool failures become in-band error observations, never a crash.
+- `llm_agent/agent/` - the ReAct loop (`loop.py`), the `Trace` / `Step` contract
+  (`trace.py`), a fail-closed `PolicyGuard` over dispatch (`guard.py`).
 - `llm_agent/tools/` - four mock tools (`calculator`, `file_reader`, `weather`,
-  `web_search`) plus a sandboxed `write_file`. Mocked at this boundary so
-  failures are injectable deterministically (`injection.py`).
+  `web_search`), a sandboxed `write_file`, injectable failures (`injection.py`).
 - `llm_agent/providers/` - the only place that issues HTTP. `respx` in tests,
-  Ollama live. Every prompt and response logged at `INFO`.
+  Ollama live; every prompt and response logged at `INFO`.
 - `llm_agent/checkers/` - the pass/fail deciders over a `Trace`
   (`deterministic.py`, I/O-free) plus the LLM-judge-on-trace (`judge.py`).
-  Unit-tested against fixture traces, so a checker bug and an agent bug can't
-  contaminate each other.
 - `llm_agent/runners/` - drive the agent on a task, capture the raw trace.
-- `dataset.py` + `data/tasks.yaml` - the task suite. Tasks in YAML, pass/fail
-  logic in test code.
+- `dataset.py` + `data/tasks.yaml` - the task suite; pass/fail logic in tests.
 
 ## How to run
 
@@ -105,10 +97,9 @@ uv run pytest -m live        # requires Ollama + qwen2.5:7b
 uv run ruff check .          # lint
 ```
 
-A session fixture warms the model before any live test, so a cold-start load
-can't masquerade as an agent failure. The intermittent findings are locked in the
-**checkers** against captured traces, so a default run reproduces them
-deterministically; the `live` tests assert only what held every rep.
+A session fixture warms the model first, so a cold start can't look like an agent
+failure. Intermittent findings are locked in the **checkers** against captured
+traces, so a default run reproduces them without a model.
 
 ## Reports
 
